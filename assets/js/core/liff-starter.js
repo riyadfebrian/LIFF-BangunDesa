@@ -98,6 +98,16 @@ $(document).ready(function() {
     document.getElementById('logoutButton').addEventListener('click', function() {
             liff.closeWindow();
     });
+
+    document.getElementById('logoutLink').addEventListener('click', function() {
+        if (!liff.isInClient()) {
+            liff.logout()
+            window.location.reload();
+        } else {
+            liff.logout();
+            liff.closeWindow();
+        }
+    });
 });
 
  
