@@ -69,4 +69,11 @@ function initializeApp() {
         liff.login()
     }
 }
+
+function logout() {
+    liff.logout()
+    if (liff.isLoggedIn() && liff.isInClient()) {
+        liff.closeWindow()
+    }
+}
  
