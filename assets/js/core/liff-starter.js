@@ -61,17 +61,9 @@ function initializeLiff(myLiffId) {
 function initializeApp() {
     // check if the user is logged in/out, and disable inappropriate button
     if (liff.isLoggedIn()) {
-        // document.getElementById("profile-img-placeholder").src = profile.pictureUrl
-
-        console.log("Profile => " + liff.getProfile())
 
         liff.getProfile().then(profile => {
-            console.log("Display name = " + profile.displayName);
-            console.log("userId = " + profile.userId);
-            console.log("pictureUrl = " + profile.pictureUrl);
-
-        document.getElementById("profile-img-placeholder").src = profile.pictureUrl
-
+            document.getElementById("profile-img-placeholder").src = profile.pictureUrl
         }).catch((err) => {
             console.log('error', err);
         });
@@ -84,8 +76,6 @@ function initializeApp() {
 
 function logout() {
     console.log("Logout clicked");
-    // liff.logout();
-    // liff.closeWindow();
 
     console.log("islogin = " + liff.isLoggedIn())
     console.log("isInClient = " + liff.isInClient())
@@ -93,6 +83,9 @@ function logout() {
     if (!liff.isInClient()) {
         liff.logout()
         window.location.reload();
+    } else {
+         liff.logout();
+         liff.closeWindow();
     }
 
     console.log("islogin after logout = " + liff.isLoggedIn())
