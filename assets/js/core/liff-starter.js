@@ -75,5 +75,13 @@ function logout() {
     console.log("islogin = " + liff.isLoggedIn())
     console.log("isInClient = " + liff.isInClient())
 
+    if (!liff.isInClient()) {
+        liff.logout()
+        window.location.reload();
+    }
+
+    console.log("islogin after logout = " + liff.isLoggedIn())
+    console.log("isInClient after logout = " + liff.isInClient())
+
 }
  
