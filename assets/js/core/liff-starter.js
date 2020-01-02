@@ -96,6 +96,7 @@ function logout() {
 
 $(document).ready(function() {
     document.getElementById('logoutButton').addEventListener('click', function() {
+            liff.logout();
             liff.closeWindow();
     });
 
