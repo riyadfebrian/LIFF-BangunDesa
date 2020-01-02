@@ -97,6 +97,7 @@ function logout() {
 $(document).ready(function() {
     document.getElementById('logoutButton').addEventListener('click', function() {
             liff.logout();
+            location.reload();
             liff.closeWindow();
     });
 
@@ -106,6 +107,7 @@ $(document).ready(function() {
             window.location.reload();
         } else {
             liff.logout();
+            location.reload();
             liff.closeWindow();
         }
     });
