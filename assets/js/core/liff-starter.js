@@ -69,6 +69,9 @@ function initializeApp() {
             console.log("Display name = " + profile.displayName);
             console.log("userId = " + profile.userId);
             console.log("pictureUrl = " + profile.pictureUrl);
+
+        document.getElementById("profile-img-placeholder").src = profile.pictureUrl
+
         }).catch((err) => {
             console.log('error', err);
         });
