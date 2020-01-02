@@ -68,7 +68,7 @@ function initializeApp() {
         liff.getProfile().then(profile => {
             console.log("Display name = " + profile.displayName);
             console.log("userId = " + profile.userId);
-            console.log("pictureUrl" = + profile.pictureUrl);
+            console.log("pictureUrl = " + profile.pictureUrl);
         }).catch((err) => {
             console.log('error', err);
         });
