@@ -31,10 +31,7 @@ window.onload = function() {
 * @param {string} myLiffId The LIFF ID of the selected element
 */
 function initializeLiffOrDie(myLiffId) {
-    if (!myLiffId) {
-        // document.getElementById("liffAppContent").classList.add('hidden');
-        // document.getElementById("liffIdErrorMessage").classList.remove('hidden');
-    } else {
+    if (myLiffId) {
         initializeLiff(myLiffId);
     }
 }
@@ -72,8 +69,8 @@ function initializeApp() {
 
 function logout() {
     console.log("Logout clicked");
-    liff.logout();
-    liff.closeWindow();
+    // liff.logout();
+    // liff.closeWindow();
 
     console.log("islogin = " + liff.isLoggedIn())
     console.log("isInClient = " + liff.isInClient())
