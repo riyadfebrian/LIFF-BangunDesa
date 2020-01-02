@@ -71,6 +71,7 @@ function initializeApp() {
 }
 
 function logout() {
+    console.log("Logout clicked")
     liff.logout()
     if (liff.isLoggedIn() && liff.isInClient()) {
         liff.closeWindow()
