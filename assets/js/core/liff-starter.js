@@ -92,4 +92,12 @@ function logout() {
     console.log("isInClient after logout = " + liff.isInClient())
 
 }
+
+
+$(document).ready(function() {
+    document.getElementById('logoutButton').addEventListener('click', function() {
+            liff.closeWindow();
+    });
+});
+
  
