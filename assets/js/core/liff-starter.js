@@ -95,12 +95,6 @@ function logout() {
 
 
 $(document).ready(function() {
-    document.getElementById('logoutButton').addEventListener('click', function() {
-            liff.logout();
-            location.reload();
-            liff.closeWindow();
-    });
-
     document.getElementById('logoutLink').addEventListener('click', function() {
         if (!liff.isInClient()) {
             liff.logout()
