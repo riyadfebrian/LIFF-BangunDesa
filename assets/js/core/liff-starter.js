@@ -106,8 +106,6 @@ $(document).ready(function() {
             liff.logout()
             window.location.reload();
         } else {
-            liff.logout();
-            location.reload();
             liff.closeWindow();
         }
     });
