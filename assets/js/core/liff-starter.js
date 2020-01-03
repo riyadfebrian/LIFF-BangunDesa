@@ -74,6 +74,7 @@ function initializeApp() {
     }
 }
 
+
 function logout() {
     console.log("Logout clicked");
 
@@ -88,9 +89,6 @@ function logout() {
          liff.closeWindow();
     }
 
-    console.log("islogin after logout = " + liff.isLoggedIn())
-    console.log("isInClient after logout = " + liff.isInClient())
-
 }
 
 
@@ -104,5 +102,7 @@ $(document).ready(function() {
         }
     });
 });
+
+
 
  

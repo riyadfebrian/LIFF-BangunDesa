@@ -19,128 +19,300 @@
 </head>
 <body class="index-page">
   <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg fixed-top navbar-transparent " color-on-scroll="100">
+  <nav class="navbar navbar-expand-lg fixed-top navbar-transparent" color-on-scroll="0">
     <div class="container">
       <div class="navbar-translate">
-         <a class="navbar-brand" href="#">
-          <img src="./assets/img/logo_bangundesa.png" class="navbar-brand img-fluid" style="height: 100%; width: 30px"> Bangun Desa
-        </a>
-        <button class="navbar-toggler navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
-          <img src="./assets/img/profile.png" class="img-fluid rounded-circle" id="profile-img-placeholder" style="height: 40px; width: 40px">
-        </button>
+       <a class="navbar-brand" href="javascript:void(0);" onclick="showLandingPage();" >
+        <img src="./assets/img/logo_bangundesa.png" class="navbar-brand img-fluid" style="height: 100%; width: 30px"> Bangun Desa
+      </a>
+      <button class="navbar-toggler navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
+        <img src="./assets/img/profile.png" class="img-fluid rounded-circle" id="profile-img-placeholder" style="height: 40px; width: 40px">
+      </button>
+    </div>
+    <div class="collapse navbar-collapse justify-content-end" id="navigation">
+      <div class="navbar-collapse-header">
+        <div class="row">
+          <div class="col-6 collapse-brand">
+            <a>
+              Menu
+            </a>
+          </div>
+          <div class="col-6 collapse-close text-right">
+            <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navigation" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
+              <i class="tim-icons icon-simple-remove"></i>
+            </button>
+          </div>
+        </div>
       </div>
-      <div class="collapse navbar-collapse justify-content-end" id="navigation">
-        <div class="navbar-collapse-header">
-          <div class="row">
-            <div class="col-6 collapse-brand">
-              <a>
-                Menu
-              </a>
-            </div>
-            <div class="col-6 collapse-close text-right">
-              <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navigation" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
-                <i class="tim-icons icon-simple-remove"></i>
-              </button>
+      <ul class="navbar-nav">
+        <li class="nav-item p-0">
+          <a class="nav-link" rel="tooltip" title="Sarankan Desa untuk dibangun" data-placement="bottom" href="javascript:void(0);" onclick="showSarankanDesa();" >
+            <i class="fas fa-plus"></i>
+            <p class="d-lg-none d-xl-none">Sarankan Desa</p>
+          </a>
+        </li>
+        <li class="nav-item p-0">
+          <a class="nav-link" id="logoutLink" rel="tooltip" title="Keluar" data-placement="bottom" href="#">
+            <i class="fas fa-sign-out-alt"></i>
+            <p class="d-lg-none d-xl-none">Logout</p>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<!-- End Navbar -->
+<div class="wrapper">
+  <div class="squares square1"></div>
+  <div class="squares square2"></div>
+  <div class="squares square3"></div>
+  <div class="squares square4"></div>
+  <div class="page-header header-filter" id="pageHeader" style="display: block;">
+    <div class="container">
+      <div class="content-center brand">
+       <img src="./assets/img/illustration.png" class="img-fluid" style="height: auto;">
+       <h4>Bantu Pembangunan Energi Terbarukan di Seluruh Desa !</h4>
+     </div>
+   </div>
+ </div>
+
+ <div class="main">
+   <div class="section section-basic" id="basic-elements">
+    <div class="container" style="margin-top: 20px">
+
+     <!-- Start Form Sarankan Desa -->
+     <div class="page-header header-filter" id="switchFormSarankanDesa" style=" display:none; height: none">
+      <h3 class="text-center">• Formulir Pendataan Desa •</h3>
+
+      <form id="formSarankanDesa" style="display: block;">
+        <div class="form-row">
+          <div class="form-group col-md-12">
+            <label for="inputNamaDesa">Nama Desa</label>
+            <input type="text" class="form-control" id="inputNamaDesa" placeholder="Nama Desa">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="inputAlamatDesa">Alamat Lengkap Desa</label>
+          <input type="text" class="form-control" id="inputAlamatDesa" placeholder="Contoh : Jl. Kaliurang 10, Desa, Kec., Kab., Provinsi">
+        </div>
+        <div class="form-group">
+          <label for="inputNoHp">No. HP yang bisa dihubungi</label>
+          <input type="number" class="form-control" id="inputNoHp" placeholder="Contoh :  081221449XXX">
+        </div>
+
+        <div class="form-group">
+          <label for="inputKeterangan">Keterangan terkait Desa</label>
+          <textarea class="form-control" id="inputKeterangan" rows="3" placeholder="Jelaskan mengenai kondisi desa yang bersangkutan"></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-primary" id="btnSarankanDesa">Kirim</button>
+      </form>
+    </div>
+    <!-- End Form -->
+
+    <!-- Pill Navigasi Volunteer-Donatur -->
+    <ul class="nav nav-pills nav-pills-primary nav-pills-icons d-flex justify-content-center" id="switchFormVolunteerDonatur" role="tablist" style="display: none;">
+      <li class="nav-item" id="navIconVolunteer" style="display: none">
+        <a class="nav-link" href="#volunteer" role="tab" data-toggle="tab">
+          <i class="tim-icons icon-badge"></i>
+          Volunteer
+        </a>
+      </li>
+      <li class="nav-item" id="navIconDonatur" style="display: none">
+        <a class="nav-link" href="#donasi" role="tab" data-toggle="tab">
+          <i class="tim-icons icon-coins"></i>
+          Donasi
+        </a>
+      </li>
+    </ul>
+    <div class="tab-content tab-space">
+      <div class="tab-pane" id="volunteer">
+        <form id="formDaftarVolunteer">
+        <div class="form-row">
+          <div class="form-group col-md-12">
+            <label for="inputNamaLengkap">Nama lengkap</label>
+            <input type="text" class="form-control" id="inputNamaLengkap" placeholder="Nama Lengkap sesuai KTP">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="inputNoKTP">No.KTP</label>
+          <input type="number" class="form-control" id="inputNoKTP" placeholder="Contoh : 320268217XXXXXXX">
+        </div>
+        <div class="form-group">
+          <label for="inputBidang">Bidang yang dikuasai</label>
+          <select class="form-control" id="inputBidang" style="color:gray">
+            <option>Kelistrikan</option>
+            <option>Mesin</option>
+            <option>Komputer</option>
+            <option>Kontruksi</option>
+            <option>Elektronika</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="inputNoHpVolunteer">No. HP yang bisa dihubungi</label>
+          <input type="number" class="form-control" id="inputNoHpVolunteer" placeholder="Contoh :  081221449XXX">
+        </div>
+        <div class="form-group">
+          <label for="inputMotivasi">Motivasi menjadi Volunteer</label>
+          <textarea class="form-control" id="inputMotivasi" rows="3" placeholder="Alasan kamu ingin menjadi volunteer"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary" id="btnDaftarVolunteer">Daftar</button>
+      </form>
+    </div>
+    <div class="tab-pane" id="donasi">
+        <form id="formDaftarDonatur">
+        <div class="form-row">
+          <div class="form-group col-md-12">
+            <label for="inputNamaDonatur">Nama Lengkap</label>
+            <input type="text" class="form-control" id="inputNamaDonatur" placeholder="Nama sesuai A/N Rekening">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="inputPilihanBank">Pilihan Bank</label>
+          <select class="form-control" id="inputPilihanBank" style="color:gray">
+            <option>BNI</option>
+            <option>BRI</option>
+            <option>BCA</option>
+            <option>BSM Syariah</option>
+            <option>Bank BJB</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="inputNominal">Nominal Donasi</label>
+          <input type="number" class="form-control" id="inputNominal" placeholder="Contoh :  Rp. 10000">
+        </div>
+
+        <button type="submit" class="btn btn-primary" id="btnDaftarDonatur">Kirim</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- End Pil Volunteer-Donatur -->
+
+  <div class="card-deck" id="cardList" style="display: flex;">
+    <div class="card">
+      <img src="./assets/img/desa/01.jpg" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h4 class="card-title">Bangun Kincir Angin di Desa Pino Raya</h4>
+        <p class="card-text">Pino Raya terletak di pelosok Bengkulu selatan dan masih belum teraliri listrik. 
+        Kondisi geografis berada pada dataran tinggi, banyak tanah lapang, dan kecepatan angin yang lumayan tinggi.</p>
+
+        <div class="progress-container">
+          <span class="progress-badge">Volunteer</span>
+          <div class="progress">
+            <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 25%;">
+              <span class="progress-value">Dibutuhkan 10 Orang</span>
             </div>
           </div>
         </div>
-        <ul class="navbar-nav">
-          <li class="nav-item p-0">
-            <a class="nav-link" rel="tooltip" title="Sarankan Desa untuk dibangun" data-placement="bottom" href="http://facebook.com">
-              <i class="fas fa-plus"></i>
-              <p class="d-lg-none d-xl-none">Sarankan Desa</p>
-            </a>
-          </li>
-          <li class="nav-item p-0">
-            <a class="nav-link" id="logoutLink" rel="tooltip" title="Logout Line" data-placement="bottom" href="#">
-              <i class="fas fa-sign-out-alt"></i>
-              <p class="d-lg-none d-xl-none">Logout</p>
-            </a>
-          </li>
-        </ul>
+        <div class="progress-container progress-primary">
+          <span class="progress-badge">Donasi</span>
+          <div class="progress">
+            <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
+              <span class="progress-value">Terkumpul 27,5 juta</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <div class="card-footer text-center">
+        <button class="btn btn-primary btn-round" type="button" onclick="showVolunteerDonatur(11122);">
+         Kontribusi !
+       </button>
+     </div>
+   </div>
+   <div class="card">
+    <img src="./assets/img/desa/02.jpg" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h4 class="card-title">Bangun Kincir Air di Desa Citoyok</h4>
+      <p class="card-text">Terletak dibawah kaki gunung, lokasi dekat dengan air terjun dan sungai besar, Desa Citoyok merupakan desa pelosok yang kaya akan energi air. Pemanfaatan air secara baik dapat di diolah menjadi penerangan listrik</p>
+
+      <div class="progress-container">
+        <span class="progress-badge">Volunteer</span>
+        <div class="progress">
+          <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 85%;">
+            <span class="progress-value">Dibutuhkan 4 Orang</span>
+          </div>
+        </div>
+      </div>
+      <div class="progress-container progress-primary">
+        <span class="progress-badge">Donasi</span>
+        <div class="progress">
+          <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 20%;">
+            <span class="progress-value">Terkumpul 7,5 juta</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <div class="card-footer text-center">
+     <button class="btn btn-primary btn-round" type="button" onclick="showVolunteerDonatur(43322);">
+       Kontribusi !
+     </button>
+   </div>
+ </div>
+ <div class="card">
+  <img src="./assets/img/desa/03.jpg" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h4 class="card-title">Bangun Mesin Pengolah Biogas dari Kotoran ternak di Desa Samoa</h4>
+    <p class="card-text">Jarak 8KM menuju akses jalan raya, membuat masyarakat kesulitan membeli Gas untuk kebutuhan rumah tangga.
+    Mata pencaharian warga sebagian besar adalah peternak</p>
+
+    <div class="progress-container">
+      <span class="progress-badge">Volunteer</span>
+      <div class="progress">
+        <div class="progress-bar" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width: 70%;">
+          <span class="progress-value">Dibutuhkan 7 Orang</span>
+        </div>
       </div>
     </div>
-  </nav>
-  <!-- End Navbar -->
-  
-  <div class="page-header header-filter">
-      <div class="squares square1"></div>
-      <div class="squares square2"></div>
-      <div class="squares square3"></div>
-      <div class="squares square4"></div>
-      <div class="container">
-
-        <div class="content-center brand">
-        	<img src="./assets/img/illustration.png" class="img-fluid" style="height: auto;">
-        	<h4>Bantu Pembangunan Energi Terbarukan di Seluruh Desa !</h4>
+    <div class="progress-container progress-primary">
+      <span class="progress-badge">Donasi</span>
+      <div class="progress">
+        <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 80%;">
+          <span class="progress-value">Terkumpul 35 juta</span>
         </div>
       </div>
     </div>
 
-    <div class="row">
-            <div class="col-md-10 ml-auto col-xl-6 mr-auto">
-              <div class="mb-3">
-                <small class="text-uppercase font-weight-bold">With icons</small>
-              </div>
-              <!-- Nav tabs -->
-              <div class="card">
-                <div class="card-header">
-                  <ul class="nav nav-tabs nav-tabs-primary" role="tablist">
-                    <li class="nav-item">
-                      <a class="nav-link active" data-toggle="tab" href="#link1" role="tablist">
-                        <i class="tim-icons icon-spaceship"></i> Profile
-                      </a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link" data-toggle="tab" href="#link2" role="tablist">
-                        <i class="tim-icons icon-settings-gear-63"></i> Settings
-                      </a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link" data-toggle="tab" href="#link3" role="tablist">
-                        <i class="tim-icons icon-bag-16"></i> Options
-                      </a>
-                    </li>
-                  </ul>
-                </div>
-                <div class="card-body">
-                  <!-- Tab panes -->
-                  <div class="tab-content tab-space">
-                    <div class="tab-pane active" id="link1">
-                      <p>Collaboratively administrate empowered markets via plug-and-play networks. Dynamically procrastinate B2C users after installed base benefits.
-                        <br />
-                        <br/> Dramatically visualize customer directed convergence without revolutionary ROI.</p>
-                    </div>
-                    <div class="tab-pane" id="link2">
-                      <p>Completely synergize resource taxing relationships via premier niche markets. Professionally cultivate one-to-one customer service with robust ideas.
-                        <br />
-                        <br/>Dynamically innovate resource-leveling customer service for state of the art customer service.</p>
-                    </div>
-                    <div class="tab-pane" id="link3">
-                      <p>Efficiently unleash cross-media information without cross-media value. Quickly maximize timely deliverables for real-time schemas.
-                        <br />
-                        <br/> Dramatically maintain clicks-and-mortar solutions without functional solutions.</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-    </div>
+
+  </div>
+  <div class="card-footer text-center">
+   <button class="btn btn-primary btn-round" type="button" onclick="showVolunteerDonatur(99876);">
+     Kontribusi !
+   </button>
+ </div>
+</div>
+</div>
+
+</div>
+</div>
+
+
+</div>
+</div>
+
+<div class="row">
+
+</div>
 
 
 
-  <!-- Core -->
-  <script src="./assets/js/core/jquery.min.js"></script>
-  <script src="./assets/js/core/popper.min.js"></script>
-  <script src="./assets/js/core/bootstrap.min.js"></script>
+<!-- Core -->
+<script src="./assets/js/core/jquery.min.js"></script>
+<script src="./assets/js/core/popper.min.js"></script>
+<script src="./assets/js/core/bootstrap.min.js"></script>
 
-  <!-- BLK• JS -->
-  <script src="./assets/js/blk-design-system.js"></script>
-  </body>
+<!-- BLK• JS -->
+<script src="./assets/js/blk-design-system.js"></script>
+</body>
 
-   <!-- Integrasi LIFF SDK  -->
-  <script src="https://static.line-scdn.net/liff/edge/2.1/sdk.js"></script>
-  <script src="./assets/js/core/liff-starter.js"></script>
-  <!-- <script src="./assets/js/core/content.js"></script> -->
+<!-- Sweet Alert -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+
+<!-- Integrasi LIFF SDK  -->
+<script src="https://static.line-scdn.net/liff/edge/2.1/sdk.js"></script>
+<script src="./assets/js/core/liff-starter.js"></script>
+<script src="./assets/js/core/content.js"></script>
 
 </html>	
